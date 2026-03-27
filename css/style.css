@@ -1,0 +1,75 @@
+:root {
+    --bg-main: #0b161d;
+    --card-bg: #16242d;
+    --gold: #f7c30a;
+    --green: #00c853;
+    --text-primary: #ffffff;
+    --text-secondary: #94a3b8;
+    --nav-bg: #111a21;
+}
+
+body {
+    background-color: var(--bg-main);
+    color: var(--text-primary);
+    font-family: 'Roboto', -apple-system, sans-serif;
+    margin: 0; padding-bottom: 70px;
+    -webkit-tap-highlight-color: transparent;
+}
+
+/* 1:1 Header */
+.top-nav {
+    background: var(--nav-bg);
+    padding: 12px 15px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: sticky; top: 0; z-index: 1000;
+    border-bottom: 1px solid #1e2a34;
+}
+
+/* Dvip.gg Banner Style */
+.banner {
+    width: 94%;
+    height: 160px;
+    margin: 10px auto;
+    background: linear-gradient(135deg, #1e2a34, #111a21), url('https://img.freepik.com/free-photo/winner-lady-with-gold-coins_23-2148201560.jpg') center/cover;
+    border-radius: 12px;
+    position: relative;
+    overflow: hidden;
+}
+
+/* Quick Access (Deposit, Withdraw, Agent) */
+.quick-menu {
+    display: flex; justify-content: space-around;
+    padding: 15px 5px; background: var(--nav-bg);
+    margin: 10px; border-radius: 12px;
+}
+.menu-box { text-align: center; font-size: 11px; }
+.menu-box i { font-size: 24px; display: block; margin-bottom: 5px; }
+
+/* Grid for Games */
+.game-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 10px; padding: 10px;
+}
+.game-card {
+    background: var(--card-bg);
+    border-radius: 10px;
+    padding: 8px;
+    text-align: center;
+    border: 1px solid #1e2a34;
+}
+.game-card img { width: 100%; border-radius: 8px; }
+.game-card p { font-size: 10px; margin: 5px 0 0; font-weight: 500; color: var(--text-secondary); }
+
+/* Bottom Navbar */
+.footer-nav {
+    position: fixed; bottom: 0; width: 100%;
+    background: var(--nav-bg);
+    display: flex; justify-content: space-around;
+    padding: 12px 0; border-top: 1px solid #1e2a34;
+}
+.nav-btn { color: var(--text-secondary); text-decoration: none; text-align: center; font-size: 10px; }
+.nav-btn.active { color: var(--green); }
+.nav-btn i { font-size: 20px; display: block; margin-bottom: 3px; }

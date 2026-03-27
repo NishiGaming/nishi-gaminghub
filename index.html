@@ -1,0 +1,48 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-app-compat.js"></script>
+    <script src="https://www.gstatic.com/firebasejs/9.6.1/firebase-auth-compat.js"></script>
+    <script src="js/firebase.js"></script>
+</head>
+<body>
+    <div id="splash" style="position:fixed; top:0; left:0; width:100%; height:100%; background:#0b161d; z-index:9999; display:flex; flex-direction:column; align-items:center; justify-content:center;">
+        <h1 style="color:#f7c30a; font-size:28px; font-weight:900; animation: pulse 1.5s infinite;">NISHI HUB</h1>
+        <div style="width:50px; height:2px; background:#00c853; margin-top:10px; animation: load 2s ease-in-out;"></div>
+    </div>
+
+    <div id="main-content" style="display:none; padding:40px 20px; text-align:center;">
+        <h2 style="color:#f7c30a; margin-bottom:40px;">LOGIN / REGISTER</h2>
+        <div class="input-group"><span style="color:#f7c30a;">+91</span><input type="tel" id="phone" placeholder="Mobile Number"></div>
+        <div id="recaptcha-container"></div>
+        <button class="btn-main" onclick="sendOTP()">SEND OTP</button>
+
+        <div id="otp-section" style="display:none; margin-top:20px;">
+            <input type="text" id="otp" placeholder="Enter OTP" class="input-box">
+            <button class="btn-main" style="background:#00c853;" onclick="verifyOTP()">VERIFY & START</button>
+        </div>
+    </div>
+
+    <script>
+        // Splash Timeout
+        setTimeout(() => {
+            document.getElementById('splash').style.display = 'none';
+            document.getElementById('main-content').style.display = 'block';
+        }, 3000);
+
+        window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {'size': 'invisible'});
+        function sendOTP() {
+            const num = "+91" + document.getElementById('phone').value;
+            firebase.auth().signInWithPhoneNumber(num, window.recaptchaVerifier).then(res => {
+                window.confirmationResult = res;
+                document.getElementById('otp-section').style.display = 'block';
+            });
+        }
+        function verifyOTP() {
+            confirmationResult.confirm(document.getElementById('otp').value).then(() => { window.location.href="home.html"; });
+        }
+    </script>
+</body>
+</html>

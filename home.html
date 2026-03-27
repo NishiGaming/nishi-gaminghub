@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="css/style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css">
+</head>
+<body>
+    <div class="top-nav">
+        <div style="color:#f7c30a; font-weight:900;">NISHI-EARNING HUB</div>
+        <div style="color:#00c853; background:rgba(0,200,83,0.1); padding:4px 10px; border-radius:15px; font-size:12px;">💰 ₹20.00</div>
+    </div>
+
+    <div class="banner slide-in"></div>
+
+    <div class="quick-menu">
+        <div class="menu-box" onclick="alert('Deposit via UPI: nishi@upi')"><i class="fas fa-wallet" style="color:#f7c30a;"></i>Deposit</div>
+        <div class="menu-box" onclick="window.location.href='wallet.html'"><i class="fas fa-hand-holding-usd" style="color:#00c853;"></i>Withdraw</div>
+        <div class="menu-box" onclick="window.location.href='invite.html'"><i class="fas fa-users" style="color:#60a5fa;"></i>Agent</div>
+        <div class="menu-box"><i class="fas fa-gift" style="color:#f87171;"></i>Bonus</div>
+    </div>
+
+    <div class="game-grid">
+        <div class="game-card" onclick="ad()"><img src="https://w0.peakpx.com/wallpaper/550/202/HD-wallpaper-aviator-game-original-aviator-game.jpg"><p>Aviator</p></div>
+        <div class="game-card" onclick="ad()"><img src="https://img.freepik.com/free-vector/casino-background-with-poker-cards_23-2147605963.jpg"><p>Super Ace</p></div>
+    </div>
+
+    <div id="payout" style="position:fixed; bottom:80px; left:15px; background:rgba(0,0,0,0.8); padding:10px; border-radius:10px; border-left:4px solid #00c853; display:none; font-size:11px;">
+        <span style="color:#00c853;">User***88</span> won ₹1250.00
+    </div>
+
+    <div class="footer-nav">
+        <a href="home.html" class="nav-btn active"><i class="fas fa-home"></i>Home</a>
+        <a href="invite.html" class="nav-btn"><i class="fas fa-users"></i>Invite</a>
+        <a href="wallet.html" class="nav-btn"><i class="fas fa-wallet"></i>Wallet</a>
+        <a href="profile.html" class="nav-btn"><i class="fas fa-user"></i>Profile</a>
+    </div>
+
+    <script>
+        function ad() { window.open("https://your-adsterra-link.com", "_blank"); }
+        setInterval(() => {
+            document.getElementById('payout').style.display = 'block';
+            setTimeout(() => { document.getElementById('payout').style.display = 'none'; }, 3000);
+        }, 10000);
+    </script>
+</body>
+</html>
