@@ -1,4 +1,4 @@
-// 1. Naya Firebase Config (Nishi gaming and earning v2)
+// 1. Naya Firebase Config (v2 project)
 const firebaseConfig = {
   apiKey: "AIzaSyAfXJhGkQIz_ww420JHY5uuXS3mR1vnvHQ",
   authDomain: "nishi-gaming-and-earning-v2.firebaseapp.com",
@@ -8,13 +8,13 @@ const firebaseConfig = {
   appId: "1:925224913605:web:769e1d2a63b4fcd82c3eac"
 };
 
-// Firebase Initialize (Puraane style mein taaki error na aaye)
+// Initialize Firebase
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
 const auth = firebase.auth();
 
-// 2. FLAG SETUP (Isse India ka Flag aur +91 dikhega)
+// 2. FLAG SETUP
 const input = document.querySelector("#phone_input");
 const iti = window.intlTelInput(input, {
     initialCountry: "in", 
@@ -22,7 +22,7 @@ const iti = window.intlTelInput(input, {
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
 });
 
-// 3. Recaptcha Setup (OTP ke liye zaroori)
+// 3. Recaptcha Setup
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
     'size': 'invisible'
 });
@@ -38,6 +38,7 @@ window.sendOTP = function() {
             alert("OTP Bhej diya gaya hai!");
         }).catch((error) => {
             console.error("Error:", error);
+            // Agar billing ka error aaye toh alert mein dikhega
             alert("Galti: " + error.message);
         });
 }
