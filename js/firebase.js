@@ -1,35 +1,35 @@
-// 1. Tera Firebase Config
+// 1. Naya Firebase Config (Nishi gaming and earning v2)
 const firebaseConfig = {
-  apiKey: "AIzaSyBQQc4eNqSXqGOJMMPzjQwOLPcVAO-NRQE",
-  authDomain: "nishi-gaming-hub.firebaseapp.com",
-  projectId: "nishi-gaming-hub",
-  storageBucket: "nishi-gaming-hub.firebasestorage.app",
-  messagingSenderId: "326151952421",
-  appId: "1:326151952421:web:9e79fed644a281328f47cc"
+  apiKey: "AIzaSyAfXJhGkQIz_ww420JHY5uuXS3mR1vnvHQ",
+  authDomain: "nishi-gaming-and-earning-v2.firebaseapp.com",
+  projectId: "nishi-gaming-and-earning-v2",
+  storageBucket: "nishi-gaming-and-earning-v2.firebasestorage.app",
+  messagingSenderId: "925224913605",
+  appId: "1:925224913605:web:769e1d2a63b4fcd82c3eac"
 };
 
-// Initialize Firebase
+// Firebase Initialize (Puraane style mein taaki error na aaye)
 if (!firebase.apps.length) {
     firebase.initializeApp(firebaseConfig);
 }
 const auth = firebase.auth();
 
-// 2. FLAG SETUP (Isse Flag dikhega)
+// 2. FLAG SETUP (Isse India ka Flag aur +91 dikhega)
 const input = document.querySelector("#phone_input");
 const iti = window.intlTelInput(input, {
-    initialCountry: "in", // India default
-    separateDialCode: true, // Flag ke sath +91 alag dikhega
+    initialCountry: "in", 
+    separateDialCode: true, 
     utilsScript: "https://cdnjs.cloudflare.com/ajax/libs/intl-tel-input/17.0.8/js/utils.js",
 });
 
-// 3. Recaptcha (OTP ke liye zaroori)
+// 3. Recaptcha Setup (OTP ke liye zaroori)
 window.recaptchaVerifier = new firebase.auth.RecaptchaVerifier('recaptcha-container', {
     'size': 'invisible'
 });
 
 // 4. Send OTP Function
 window.sendOTP = function() {
-    const phoneNumber = iti.getNumber(); // Ye apne aap +91 jod dega
+    const phoneNumber = iti.getNumber(); 
     const appVerifier = window.recaptchaVerifier;
 
     auth.signInWithPhoneNumber(phoneNumber, appVerifier)
